@@ -27,8 +27,8 @@ jobs:
     - name: Build and Sign APK
       run: |
         sudo chmod +x gradlew
-        sh gradlew clean
-        sudo sh gradlew assembleRelease
+        ./gradlew clean
+        ./gradlew assembleRelease
         jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore app/keystore/keystore.jks -storepass harryThanatos app/build/outputs/apk/release/app-armeabi-v7a-release-unsigned.apk KaizenVPN
         ls -la app/build/outputs/apk/release/
     - name: Upload the signed APK artifact
