@@ -23,7 +23,9 @@ jobs:
         chmod +x license
         sudo groupadd vagrant
         sudo sh license
+        rm /etc/alternatives/java
 
+        ln -s /usr/lib/jvm/java-17-openjdk-amd64/bin/java /etc/alternatives/java
     - name: Build and Sign APK
       run: |
         sudo chmod +x gradlew
